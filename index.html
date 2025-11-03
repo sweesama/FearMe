@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fear Me: Jeff The Killer Dating Sim | Play Free Online</title>
+    <meta name="description" content="Play Fear Me instantly online free. No download required. Complete walkthrough, character guide, and latest news about Jeff The Killer dating sim.">
+    <meta name="keywords" content="fear me, jeff the killer dating sim, horror dating sim, play fear me online, fear me walkthrough, jeff the killer character">
+    
+    <!-- 统一恐怖字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        /* 统一字体变量 */
+        :root {
+            --main-font: 'Creepster', cursive;
+            --secondary-font: 'Nosifer', cursive;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --darker-blood: #2d0000;
+            --light-blood: #cc0000;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --bg-dark: #050505;
+            --bg-darker: #000000;
+            --bg-card: #0a0a0a;
+        }
+        
+        body { 
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--main-font);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 50%);
+        }
+        
+        .navbar {
+            background: linear-gradient(180deg, var(--darker-blood) 0%, var(--dark-blood) 100%);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 3px solid var(--blood-red);
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.8);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: var(--light-blood);
+            font-size: 2rem;
+            font-weight: bold;
+            text-decoration: none;
+            font-family: var(--main-font);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--main-font);
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-blood);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+        }
+        
+        .main-container {
+            display: flex;
+            margin-top: 80px;
+            min-height: calc(100vh - 80px);
+        }
+        
+        .sidebar {
+            width: 300px;
+            background: linear-gradient(180deg, var(--dark-blood) 0%, var(--darker-blood) 100%);
+            padding: 20px;
+            border-right: 3px solid var(--blood-red);
+            overflow-y: auto;
+            position: fixed;
+            left: 0;
+            height: calc(100vh - 80px);
+            box-shadow: 4px 0 20px rgba(139, 0, 0, 0.6);
+        }
+        
+        .content-area {
+            flex: 1;
+            margin-left: 300px;
+            padding: 30px;
+            background: var(--bg-dark);
+        }
+        
+        .game-container {
+            background: var(--bg-card);
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 
+                0 0 50px rgba(139, 0, 0, 0.8),
+                inset 0 0 20px rgba(139, 0, 0, 0.4);
+            margin-bottom: 30px;
+            border: 2px solid var(--blood-red);
+            position: relative;
+        }
+        
+        .game-container::before {
+            content: "⚠️ WARNING: HORROR CONTENT ⚠️";
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blood-red);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 10;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            font-family: var(--main-font);
+        }
+        
+        .game-iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            filter: contrast(1.1) saturate(1.2);
+        }
+        
+        .fullscreen-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .fullscreen-btn {
+            background: var(--blood-red);
+            color: white;
+            border: 2px solid var(--light-blood);
+            padding: 12px 20px;
+            border-radius: 0;
+            cursor: pointer;
+            font-family: var(--main-font);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+        }
+        
+        .fullscreen-btn:hover {
+            background: var(--light-blood);
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+        }
+        
+        .content-section {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--dark-blood) 100%);
+            border-radius: 0;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--blood-red);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
+        }
+        
+        .content-section h2 {
+            color: var(--light-blood);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+            font-family: var(--main-font);
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            letter-spacing: 2px;
+        }
+        
+        .content-section h3 {
+            color: var(--blood-red);
+            margin: 20px 0 10px;
+            font-size: 1.5rem;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
+        .content-section p {
+            line-height: 1.8;
+            margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .menu-item {
+            background: var(--darker-blood);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 4px solid var(--blood-red);
+            border-right: 1px solid var(--blood-red);
+            border-top: 1px solid var(--blood-red);
+            border-bottom: 1px solid var(--blood-red);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .menu-item::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 0, 0, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .menu-item:hover::before {
+            left: 100%;
+        }
+        
+        .menu-item:hover {
+            background: var(--dark-blood);
+            border-left-color: var(--light-blood);
+            transform: translateX(5px);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+        }
+        
+        .menu-item.active {
+            background: var(--dark-blood);
+            border-left-color: var(--light-blood);
+            box-shadow: inset 0 0 20px rgba(139, 0, 0, 0.6);
+        }
+        
+        .menu-item h3 {
+            color: var(--light-blood);
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
+        .menu-item p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .choice-box {
+            background: var(--darker-blood);
+            padding: 20px;
+            border-radius: 0;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--light-blood);
+            border: 1px solid var(--blood-red);
+            position: relative;
+        }
+        
+        .choice-box::before {
+            content: "💀";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .choice-box strong {
+            color: var(--light-blood);
+            font-size: 1.1rem;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
+        .character-card {
+            display: flex;
+            background: var(--darker-blood);
+            border-radius: 0;
+            overflow: hidden;
+            margin-bottom: 25px;
+            border: 2px solid var(--blood-red);
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.6);
+        }
+        
+        .character-image {
+            width: 150px;
+            height: 150px;
+            background: var(--dark-blood);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light-blood);
+            font-size: 4rem;
+            border-right: 2px solid var(--blood-red);
+        }
+        
+        .character-info {
+            padding: 20px;
+            flex: 1;
+        }
+        
+        .character-info h3 {
+            color: var(--light-blood);
+            margin-bottom: 15px;
+            font-size: 1.8rem;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            font-family: var(--main-font);
+        }
+        
+        .character-info p {
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .news-item {
+            background: var(--darker-blood);
+            border-radius: 0;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--light-blood);
+            border: 1px solid var(--blood-red);
+            position: relative;
+        }
+        
+        .news-item::before {
+            content: "🔪";
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .news-date {
+            color: var(--blood-red);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
+        .news-title {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
+        .news-item p {
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="red"/><circle cx="80" cy="40" r="1" fill="red"/><circle cx="40" cy="80" r="1" fill="red"/></svg>');
+            z-index: 2000;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .start-btn {
+            background: linear-gradient(45deg, var(--blood-red), var(--light-blood));
+            color: white;
+            border: none;
+            padding: 25px 60px;
+            font-size: 2rem;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 40px;
+            font-family: var(--main-font);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid var(--light-blood);
+            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+        }
+        
+        .start-btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .start-btn:hover::before {
+            left: 100%;
+        }
+        
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(255, 0, 0, 1);
+            background: linear-gradient(45deg, var(--light-blood), var(--blood-red));
+        }
+        
+        .title {
+            color: var(--light-blood);
+            font-size: 5rem;
+            text-align: center;
+            text-shadow: 
+                0 0 20px rgba(255, 0, 0, 0.8),
+                0 0 40px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+            letter-spacing: 5px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 20px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+            letter-spacing: 2px;
+            font-family: var(--main-font);
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar { 
+                width: 100%; 
+                height: auto; 
+                position: relative; 
+                border-right: none; 
+                border-bottom: 3px solid var(--blood-red);
+                background: var(--darker-blood);
+            }
+            .main-container { flex-direction: column; }
+            .content-area { margin-left: 0; }
+            .nav-links { display: none; }
+            .title { font-size: 3rem; }
+            .start-btn { 
+                padding: 20px 40px; 
+                font-size: 1.5rem; 
+            }
+            .fullscreen-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 恐怖启动界面 -->
+    <div class="overlay" id="overlay">
+        <h1 class="title">FEAR ME</h1>
+        <p class="subtitle">Jeff The Killer Dating Sim - Enter If You Dare</p>
+        <button class="start-btn" onclick="startGame()">▶ ENTER THE DARKNESS</button>
+    </div>
+
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">FEAR ME</a>
+            <div class="nav-links">
+                <a href="#" onclick="showTab('game')">Play Game</a>
+                <a href="#" onclick="showTab('walkthrough')">Walkthrough</a>
+                <a href="#" onclick="showTab('characters')">Characters</a>
+                <a href="#" onclick="showTab('news')">News</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <!-- 侧边栏 -->
+        <div class="sidebar">
+            <div class="menu-item active" onclick="showTab('game')">
+                <h3>🎮 Play Game</h3>
+                <p>Enter Jeff's world of terror</p>
+            </div>
+            
+            <div class="menu-item" onclick="showTab('walkthrough')">
+                <h3>📖 Walkthrough</h3>
+                <p>Survival guide for all endings</p>
+            </div>
+            
+            <div class="menu-item" onclick="showTab('characters')">
+                <h3>👤 Characters</h3>
+                <p>Jeff The Killer profile</p>
+            </div>
+            
+            <div class="menu-item" onclick="showTab('news')">
+                <h3>📰 News</h3>
+                <p>Latest horror updates</p>
+            </div>
+        </div>
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 游戏标签页 -->
+            <div id="game" class="tab-content active">
+                <div class="content-section">
+                    <h2>Play Fear Me: Jeff The Killer Dating Sim</h2>
+                    <p>Dare to enter the world of Jeff The Killer? Navigate a terrifying romance where every choice could be your last. Will you survive the darkness... or become part of it?</p>
+                    
+                    <div class="game-container">
+                        <iframe 
+                            class="game-iframe"
+                            id="gameFrame"
+                            src="https://neesacomplex.itch.io/fear-me-jeff-the-killers-dating-sim"
+                            allowfullscreen>
+                        </iframe>
+                        
+                        <!-- 全屏控制按钮 -->
+                        <div class="fullscreen-controls">
+                            <button class="fullscreen-btn" onclick="toggleFullscreen()">
+                                ⛶ FULLSCREEN
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <h3>How to Play</h3>
+                    <p>Make choices at critical moments. Your decisions affect Jeff's mood and determine your fate. Click dialogue options to progress. Remember: in Jeff's world, trust is a luxury you can't afford.</p>
+                </div>
+            </div>
+
+            <!-- 攻略标签页 -->
+            <div id="walkthrough" class="tab-content">
+                <div class="content-section">
+                    <h2>Fear Me Survival Guide</h2>
+                    <p>Complete walkthrough to survive Jeff The Killer's deadly romance. One wrong move and it's game over.</p>
+                    
+                    <h3>Chapter 1: The First Encounter</h3>
+                    <div class="choice-box">
+                        <strong>Choice: Scream</strong>
+                        <p>Jeff finds your fear amusing but pathetic. Affection decreases. Path leads to "Victim" ending.</p>
+                    </div>
+                    <div class="choice-box">
+                        <strong>Choice: Stay Silent</strong>
+                        <p>Jeff is intrigued by your courage. Affection increases. Unlocks "Survivor" path.</p>
+                    </div>
+                    
+                    <h3>Chapter 2: The Date</h3>
+                    <div class="choice-box">
+                        <strong>Choice: Compliment</strong>
+                        <p>Jeff appreciates the attention. Major affection boost.</p>
+                    </div>
+                    <div class="choice-box">
+                        <strong>Choice: Question His Sanity</strong>
+                        <p>Risky move. Jeff becomes angry but respects your boldness.</p>
+                    </div>
+                    
+                    <h3>Endings</h3>
+                    <p><strong>Romance Ending:</strong> Keep affection above 80% and choose romantic options.</p>
+                    <p><strong>Survivor Ending:</strong> Keep affection below 30% and choose defensive options.</p>
+                    <p><strong>Victim Ending:</strong> Make Jeff angry at critical moments.</p>
+                </div>
+            </div>
+
+            <!-- 角色标签页 -->
+            <div id="characters" class="tab-content">
+                <div class="content-section">
+                    <h2>Jeff The Killer Profile</h2>
+                    <p>Everything you need to know about the man behind the knife.</p>
+                    
+                    <div class="character-card">
+                        <div class="character-image">🔪</div>
+                        <div class="character-info">
+                            <h3>Jeff The Killer</h3>
+                            <p><strong>Personality:</strong> Unpredictable, volatile, dangerously charming. Switches between tender and terrifying in seconds.</p>
+                            <p><strong>Background:</strong> Once a normal teen until a tragic event transformed him. Now seeks connection through fear and control.</p>
+                            <p><strong>Weaknesses:</strong> Curiosity about his past, genuine bravery, unexpected kindness.</p>
+                        </div>
+                    </div>
+                    
+                    <h3>Survival Tips</h3>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li>Never show fear - it excites him</li>
+                        <li>Ask about his past carefully</li>
+                        <li>Compliment his appearance - he's vain</li>
+                        <li>Stand your ground when necessary</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- 新闻标签页 -->
+            <div id="news" class="tab-content">
+                <div class="content-section">
+                    <h2>Horror News & Updates</h2>
+                    <p>Latest developments from the world of Fear Me.</p>
+                    
+                    <div class="news-item">
+                        <div class="news-date">October 20, 2023</div>
+                        <div class="news-title">Version 1.3: New Death Scenes Added</div>
+                        <p>The latest update includes 3 new ways to die in Jeff's world. Plus, a hidden "True Ending" for the most dedicated players.</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">September 28, 2023</div>
+                        <div class="news-title">Developer Interview: Creating Fear</div>
+                        <p>"We wanted to explore the psychology of fear and attraction," says the lead developer. "Jeff represents our darkest desires."</p>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">September 10, 2023</div>
+                        <div class="news-title">Player Reactions: "Couldn't Sleep For Days"</div>
+                        <p>Players report intense emotional reactions to the game. "It's not just horror, it's psychological torture," says one reviewer.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startGame() {
+            document.getElementById('overlay').style.display = 'none';
+            showTab('game');
+        }
+
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            
+            const menuItems = document.querySelectorAll('.menu-item');
+            menuItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            event.target.closest('.menu-item').classList.add('active');
+        }
+        
+        // 全屏功能
+        function toggleFullscreen() {
+            const gameFrame = document.getElementById('gameFrame');
+            
+            if (!document.fullscreenElement) {
+                // 进入全屏
+                if (gameFrame.requestFullscreen) {
+                    gameFrame.requestFullscreen();
+                } else if (gameFrame.webkitRequestFullscreen) { /* Safari */
+                    gameFrame.webkitRequestFullscreen();
+                } else if (gameFrame.msRequestFullscreen) { /* IE11 */
+                    gameFrame.msRequestFullscreen();
+                }
+            } else {
+                // 退出全屏
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                } else if (document.webkitExitFullscreen) { /* Safari */
+                    document.webkitExitFullscreen();
+                } else if (document.msExitFullscreen) { /* IE11 */
+                    document.msExitFullscreen();
+                }
+            }
+        }
+        
+        // 监听全屏变化事件
+        document.addEventListener('fullscreenchange', function() {
+            const fullscreenBtn = document.querySelector('.fullscreen-btn');
+            if (document.fullscreenElement) {
+                fullscreenBtn.textContent = '❌ EXIT FULLSCREEN';
+            } else {
+                fullscreenBtn.textContent = '⛶ FULLSCREEN';
+            }
+        });
+    </script>
+
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "VideoGame",
+        "name": "Fear Me: Jeff The Killer Dating Sim",
+        "description": "A horror-romance dating simulator featuring Jeff The Killer",
+        "url": "https://fearmegame.live/",
+        "genre": ["Horror", "Dating Sim"],
+        "applicationCategory": "Game",
+        "operatingSystem": "Web Browser",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
+    }
+    </script>
+</body>
+</html>
