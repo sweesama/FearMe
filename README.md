@@ -8,13 +8,14 @@ This repository hosts the promotional landing page for **Fear Me: Jeff The Kille
 The page is a single static HTML document (`index.html`) with inline styles and scripts. Supporting files provide SEO metadata, crawler directives, and deployment settings for static hosting platforms (e.g., Vercel).
 
 ## Key Files
-- `index.html` – Complete landing page with embedded game iframe, walkthrough, character dossier, news timeline, and FAQ.
+- `index.html` – Complete landing page with embedded game iframe, walkthrough, character dossier, news timeline, FAQ, and technical support guidance.
 - `404.html` – Custom not-found page mirroring the horror branding.
 - `favicon.png` – Site icon referenced from the HTML head.
 - `robots.txt` – Allows all crawlers and points to the sitemap.
-- `sitemap.xml` – Lists anchors for major sections (Home, Walkthrough, Characters, News, FAQ) with current timestamps.
+- `sitemap.xml` – Lists anchors for major sections (Home, Walkthrough, Characters, News, FAQ) plus legal/support pages with current timestamps.
 - `llms.txt` – Quick reference metadata for large-language-model prompts or SEO assistants.
 - `vercel.json` – Deployment headers; enforces security-oriented response headers.
+- `about.html` / `contact.html` / `privacy.html` / `terms.html` – Support pages that establish provenance, contact methods, and policies.
 
 ## Current Site Sections (anchor IDs)
 1. `#game` – Play Fear Me directly via itch.io iframe, plus survival overview and quick tips.
@@ -26,6 +27,8 @@ The page is a single static HTML document (`index.html`) with inline styles and 
 ## Recent Updates (2025-10-30)
 - Added detailed **News** timeline covering 2025 release milestones, localization beta, community theories, and APK availability.
 - Introduced a dedicated **FAQ** tab with seven high-signal questions for search intent coverage.
+- Added **FearMeGame Technical Support** guidance to the Game tab and reinforced brand keywords in the hero copy.
+- Published `about.html`, `contact.html`, `privacy.html`, and `terms.html`, then linked them via the global footer for trust signals.
 - Refreshed **meta tags** (title/description, Open Graph, Twitter Card) for improved SERP snippets and social sharing.
 - Expanded **structured data** (VideoGame schema) with platform, author, publisher, and keyword fields.
 - Updated `sitemap.xml`, `llms.txt`, and ensured `robots.txt` references the latest sitemap.
@@ -47,6 +50,7 @@ The page is a single static HTML document (`index.html`) with inline styles and 
 2. **Player Testimonials & Media** – Embed curated quotes or video reviews to increase trust and dwell time.
 3. **Performance Enhancements** – Consider extracting CSS into an external file, enabling iframe lazy loading, and compressing assets.
 4. **Localized Content Strategy** – Prepare bilingual sections or separate guides (e.g., Mandarin) once translations stabilize.
-5. **Monitor Devlog Feed** – Schedule periodic updates to News/FAQ after each official itch.io announcement.
+5. **Backlink Outreach & Indexing** – Seed links on itch.io, Reddit, and relevant directories; monitor GSC coverage for new legal pages.
+6. **Monitor Devlog Feed** – Schedule periodic updates to News/FAQ after each official itch.io announcement.
 
 For future revisions, append change summaries here and adjust the "Last updated" stamp to match deployment dates.

@@ -30,4 +30,28 @@
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
     </url>
+    <url>
+        <loc>https://fearmegame.live/about.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://fearmegame.live/contact.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.5</priority>
+    </url>
+    <url>
+        <loc>https://fearmegame.live/privacy.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+    <url>
+        <loc>https://fearmegame.live/terms.html</loc>
+        <lastmod>2025-10-30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
 </urlset>
