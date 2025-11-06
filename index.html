@@ -225,11 +225,38 @@
             font-family: var(--main-font);
         }
         
+        .content-section h4 {
+            color: var(--blood-red);
+            margin: 15px 0 10px;
+            font-size: 1.3rem;
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+            font-family: var(--main-font);
+        }
+        
         .content-section p {
             line-height: 1.8;
             margin-bottom: 15px;
             color: var(--text-secondary);
             font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        .content-section ul,
+        .content-section li {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+        
+        .content-section li strong {
+            font-family: var(--main-font);
+            color: var(--light-blood);
+            font-size: 1.05rem;
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
+        }
+        
+        .content-section p strong {
+            color: var(--light-blood);
+            font-weight: bold;
         }
         
         .menu-item {
@@ -405,90 +432,6 @@
             font-family: 'Segoe UI', Arial, sans-serif;
         }
         
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at center, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 1) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="red"/><circle cx="80" cy="40" r="1" fill="red"/><circle cx="40" cy="80" r="1" fill="red"/></svg>');
-            z-index: 2000;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .start-btn {
-            background: linear-gradient(45deg, var(--blood-red), var(--light-blood));
-            color: white;
-            border: none;
-            padding: 25px 60px;
-            font-size: 2rem;
-            border-radius: 0;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 40px;
-            font-family: var(--main-font);
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid var(--light-blood);
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
-        }
-        
-        .start-btn::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        
-        .start-btn:hover::before {
-            left: 100%;
-        }
-        
-        .start-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 50px rgba(255, 0, 0, 1);
-            background: linear-gradient(45deg, var(--light-blood), var(--blood-red));
-        }
-        
-        .title {
-            color: var(--light-blood);
-            font-size: 5rem;
-            text-align: center;
-            text-shadow: 
-                0 0 20px rgba(255, 0, 0, 0.8),
-                0 0 40px rgba(255, 0, 0, 0.6);
-            font-family: var(--main-font);
-            letter-spacing: 5px;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
-        
-        .subtitle {
-            color: var(--text-secondary);
-            font-size: 1.5rem;
-            text-align: center;
-            margin-top: 20px;
-            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
-            letter-spacing: 2px;
-            font-family: var(--main-font);
-        }
-        
         @media (max-width: 768px) {
             .sidebar { 
                 width: 100%; 
@@ -514,13 +457,6 @@
     </style>
 </head>
 <body>
-    <!-- 恐怖启动界面 -->
-    <div class="overlay" id="overlay">
-        <div class="title">FEAR ME</div>
-        <p class="subtitle">Jeff The Killer Dating Sim - Enter If You Dare</p>
-        <button class="start-btn" onclick="startGame()">▶ ENTER THE DARKNESS</button>
-    </div>
-
     <!-- 导航栏 -->
     <nav class="navbar">
         <div class="nav-container">
@@ -570,18 +506,8 @@
             <div id="game" class="tab-content active">
                 <div class="content-section">
                     <h1>Play Fear Me: Jeff The Killer Dating Sim</h1>
-                    <p>Dare to enter the world of Jeff The Killer? Navigate a terrifying romance where every choice could be your last. Will you survive the darkness... or become part of it?</p>
-                    <p><strong>FearMeGame</strong> is the unofficial player hub cataloging every route, ending, and lore detail from Neesa’s original release. We archive devlog updates, community discoveries, and safety tips in one place so newcomers can trust the FearMeGame guide as their first stop.</p>
-                    <h2>Game Overview</h2>
-                    <p>Fear Me is a psychological horror visual novel created by indie developer Neesa. You face the infamous creepypasta killer Jeff, balancing terror and desire while hunting for a path to survive. Every dialogue choice shifts his trust level and determines whether you make it out alive.</p>
-                    <p>The story blends dark humor with jump scares, honoring Jeff’s classic lore while building fresh emotional conflicts. As you progress, you uncover his past trauma, twisted romance, and the thin line between trust and self-preservation.</p>
-                    <h2>Why Players Love Fear Me</h2>
-                    <ul style="margin-left: 20px; margin-bottom: 15px;">
-                        <li><strong>Mind Games:</strong> every option tests your nerve and intuition.</li>
-                        <li><strong>Multiple Endings:</strong> affection and key decisions unlock romance, survivor, or victim paths.</li>
-                        <li><strong>Fan Easter Eggs:</strong> Jeff’s iconic quotes, look, and creepypasta references appear throughout the story.</li>
-                        <li><strong>Cross-Platform:</strong> play instantly in-browser or via downloadable Windows and Android builds.</li>
-                    </ul>
+                    <p style="font-size: 1.1rem; margin-bottom: 20px;">Navigate a terrifying romance with Jeff The Killer. Every choice could be your last. <strong>FearMeGame</strong> provides complete guides to help you survive.</p>
+                    
                     <div class="game-container">
                         <iframe 
                             class="game-iframe"
@@ -597,6 +523,18 @@
                             </button>
                         </div>
                     </div>
+                    
+                    <h2>About Fear Me</h2>
+                    <p><strong>FearMeGame</strong> is the unofficial player hub cataloging every route, ending, and lore detail from Neesa's original release. We archive devlog updates, community discoveries, and safety tips in one place so newcomers can trust the FearMeGame guide as their first stop.</p>
+                    <p>Fear Me is a psychological horror visual novel created by indie developer Neesa. You face the infamous creepypasta killer Jeff, balancing terror and desire while hunting for a path to survive. Every dialogue choice shifts his trust level and determines whether you make it out alive.</p>
+                    
+                    <h2>Why Players Love Fear Me</h2>
+                    <ul style="margin-left: 20px; margin-bottom: 15px;">
+                        <li><strong>Mind Games:</strong> every option tests your nerve and intuition.</li>
+                        <li><strong>Multiple Endings:</strong> affection and key decisions unlock romance, survivor, or victim paths.</li>
+                        <li><strong>Fan Easter Eggs:</strong> Jeff's iconic quotes, look, and creepypasta references appear throughout the story.</li>
+                        <li><strong>Cross-Platform:</strong> play instantly in-browser or via downloadable Windows and Android builds.</li>
+                    </ul>
                     
                     <h2>How to Play</h2>
                     <p>Make choices at critical moments. Your decisions affect Jeff's mood and determine your fate. Click dialogue options to progress. Remember: in Jeff's world, trust is a luxury you can't afford.</p>
@@ -681,7 +619,7 @@
                             <p><strong>Motivations:</strong> seeks control through fear yet remains morbidly curious about genuine affection.</p>
                             <p><strong>Weaknesses:</strong> Curiosity about his past, genuine bravery, unexpected kindness.</p>
                             <p><strong>Signature Moments:</strong> the gleaming knife, chilling smile, and “Go to sleep” catchphrase punctuate the plot, thrilling longtime fans.</p>
-                            <h4 style="margin-top: 10px; color: var(--blood-red);">Interaction Tips</h4>
+                            <h4>Interaction Tips</h4>
                             <ul style="margin-left: 20px; margin-bottom: 15px;">
                                 <li>Be brave without being reckless—prove you can stand alongside him.</li>
                                 <li>Offer sincere compliments about his skills or appearance to stroke his ego.</li>
@@ -802,11 +740,6 @@
     </footer>
 
     <script>
-        function startGame() {
-            document.getElementById('overlay').style.display = 'none';
-            showTab('game');
-        }
-
         function showTab(tabName) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(tab => {

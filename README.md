@@ -1,6 +1,6 @@
 # Fear Me Game Landing Site
 
-_Last updated: 2025-10-30_
+_Last updated: 2025-11-06_
 
 ## Overview
 This repository hosts the promotional landing page for **Fear Me: Jeff The Killer Dating Sim**. The site targets organic Google search traffic for the "Fear Me" keyword and introduces players to the browser-based horror visual novel, while curating guides, updates, and safety information.
@@ -25,11 +25,14 @@ The page is a single static HTML document (`index.html`) with inline styles and 
 5. `#faq` – Answers covering platforms, content warnings, pricing, playtime, offline availability, feedback channels, and roadmap expectations.
 
 ## Recent Updates (2025-11-06)
-- **Keyword Optimization**: Added 3 new FAQ questions focused on "FearMeGame" brand (What is / Is it safe / How differs). Total brand keyword appearances: 23 instances across page.
-- **News Section Branding**: Updated 4 news titles to include "FearMeGame" (APK Release / Community Theorycrafting / Accessibility Update / News & Updates header).
-- **Technical Support Section**: Added FearMeGame-branded troubleshooting guidance with 5 keyword mentions.
-- **Site Infrastructure**: Published `about.html`, `contact.html`, `privacy.html`, `terms.html` with complete navigation, GA tracking, and unified horror theme styling.
-- **404 Page Enhancement**: Added favicon and Creepster font references to maintain brand consistency.
+- **🎨 Typography Optimization**: Fixed font inconsistencies across all elements. Lists now use readable Segoe UI, strong tags have unified styling (Creepster in lists, bold in paragraphs), and h4 tags have explicit definitions.
+- **🚀 UX Optimization**: Removed startup overlay screen to reduce friction. Users now see game iframe immediately upon page load.
+- **📱 Layout Redesign**: Moved game iframe to top of page with simplified 1-sentence intro. Detailed descriptions moved below iframe to prioritize instant playability.
+- **🎯 Keyword Optimization**: Added 3 new FAQ questions focused on "FearMeGame" brand (What is / Is it safe / How differs). Total brand keyword appearances: 23 instances across page.
+- **📰 News Section Branding**: Updated 4 news titles to include "FearMeGame" (APK Release / Community Theorycrafting / Accessibility Update / News & Updates header).
+- **🛠️ Technical Support Section**: Added FearMeGame-branded troubleshooting guidance with 5 keyword mentions.
+- **🏗️ Site Infrastructure**: Published `about.html`, `contact.html`, `privacy.html`, `terms.html` with complete navigation, GA tracking, and unified horror theme styling.
+- **🎨 404 Page Enhancement**: Added favicon and Creepster font references to maintain brand consistency.
 - Added detailed **News** timeline covering 2025 release milestones, localization beta, community theories, and APK availability.
 - Introduced a dedicated **FAQ** tab with ten high-signal questions for search intent coverage.
 - Refreshed **meta tags** (title/description, Open Graph, Twitter Card) for improved SERP snippets and social sharing.
