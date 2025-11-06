@@ -1,68 +1,254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-127ML1H4ZY"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-127ML1H4ZY');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Use | FearMeGame</title>
     <meta name="description" content="FearMeGame terms of use outlining acceptable use, intellectual property, and disclaimer points for the fan site.">
     <link rel="icon" href="favicon.png" type="image/png">
+    
+    <!-- Shared horror fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Nosifer&display=swap" rel="stylesheet">
+    
     <style>
-        body {
-            background: #050505;
-            color: #e0e0e0;
-            font-family: 'Segoe UI', Arial, sans-serif;
-            margin: 0;
-            padding: 40px 20px;
-            line-height: 1.8;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --main-font: 'Creepster', cursive;
+            --secondary-font: 'Nosifer', cursive;
+            --blood-red: #8b0000;
+            --dark-blood: #4a0000;
+            --darker-blood: #2d0000;
+            --light-blood: #cc0000;
+            --text-primary: #e0e0e0;
+            --text-secondary: #a0a0a0;
+            --bg-dark: #050505;
+            --bg-darker: #000000;
+            --bg-card: #0a0a0a;
         }
-        h1, h2 {
-            color: #cc0000;
-            font-family: 'Creepster', cursive;
+        
+        body { 
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--main-font);
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(139, 0, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 0, 0, 0.15) 0%, transparent 50%);
         }
-        a {
-            color: #ff4d4d;
+        
+        .navbar {
+            background: linear-gradient(180deg, var(--darker-blood) 0%, var(--dark-blood) 100%);
+            padding: 15px 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 3px solid var(--blood-red);
+            box-shadow: 0 4px 20px rgba(139, 0, 0, 0.8);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: var(--light-blood);
+            font-size: 2rem;
+            font-weight: bold;
             text-decoration: none;
+            font-family: var(--main-font);
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+            letter-spacing: 2px;
         }
-        a:hover {
-            text-decoration: underline;
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
         }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--main-font);
+        }
+        
+        .nav-links a:hover {
+            color: var(--light-blood);
+            text-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+        }
+        
+        .content-wrapper {
+            margin-top: 100px;
+            padding: 40px 20px;
+            min-height: calc(100vh - 200px);
+        }
+        
         .container {
             max-width: 900px;
             margin: 0 auto;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--dark-blood) 100%);
+            border: 1px solid var(--blood-red);
+            padding: 40px;
+            box-shadow: 0 0 30px rgba(139, 0, 0, 0.4);
         }
+        
+        h1 {
+            color: var(--light-blood);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+            font-family: var(--main-font);
+        }
+        
+        h2 {
+            color: var(--blood-red);
+            font-size: 1.8rem;
+            margin: 30px 0 15px;
+            text-shadow: 0 0 10px rgba(255, 0, 0, 0.6);
+            font-family: var(--main-font);
+        }
+        
         p {
+            line-height: 1.8;
             margin-bottom: 15px;
+            color: var(--text-secondary);
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
+        
         ul {
             margin-left: 20px;
+            margin-bottom: 20px;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: var(--text-secondary);
+        }
+        
+        ul li {
+            margin-bottom: 10px;
+        }
+        
+        a {
+            color: var(--light-blood);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        a:hover {
+            text-shadow: 0 0 8px rgba(255, 0, 0, 0.8);
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 25px;
+            background: var(--blood-red);
+            color: white;
+            border: 2px solid var(--light-blood);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: var(--main-font);
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            background: var(--light-blood);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background: var(--darker-blood);
+            border-top: 2px solid var(--blood-red);
+            color: var(--text-secondary);
+            padding: 25px;
+            text-align: center;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        
+        footer a {
+            color: var(--text-secondary);
+            margin: 0 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .container { padding: 20px; }
+            h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Terms of Use</h1>
-        <p>These Terms of Use govern your access to and use of <strong>https://fearmegame.live</strong> (the "Site"). By browsing or using the Site, you agree to these terms.</p>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">FEAR ME</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-        <h2>Non-Official Fan Site</h2>
-        <p>FearMeGame is an unofficial fan resource. We are not affiliated with Neesa Complex or any official publisher of Fear Me: Jeff the Killer's Dating Sim. All trademarks and copyrights belong to their respective owners.</p>
+    <div class="content-wrapper">
+        <div class="container">
+            <h1>Terms of Use</h1>
+            <p>These Terms of Use govern your access to and use of <strong>https://fearmegame.live</strong> (the "Site"). By browsing or using the Site, you agree to these terms.</p>
 
-        <h2>Acceptable Use</h2>
-        <ul>
-            <li>Do not use the Site for unlawful purposes or to harass other fans.</li>
-            <li>Do not attempt to disrupt or compromise the Site's security.</li>
-            <li>Attribution is required if you quote or share our original guides.</li>
-        </ul>
+            <h2>Non-Official Fan Site</h2>
+            <p>FearMeGame is an unofficial fan resource. We are not affiliated with Neesa Complex or any official publisher of Fear Me: Jeff the Killer's Dating Sim. All trademarks and copyrights belong to their respective owners.</p>
 
-        <h2>Content Disclaimer</h2>
-        <p>We strive for accuracy but cannot guarantee completeness. Game updates may render sections outdated. Always cross-check with the official itch.io page for the latest builds.</p>
+            <h2>Acceptable Use</h2>
+            <ul>
+                <li>Do not use the Site for unlawful purposes or to harass other fans.</li>
+                <li>Do not attempt to disrupt or compromise the Site's security.</li>
+                <li>Attribution is required if you quote or share our original guides.</li>
+            </ul>
 
-        <h2>Links to Other Websites</h2>
-        <p>The Site contains links to third-party websites. We do not control or endorse their content and are not responsible for any damages arising from their use.</p>
+            <h2>Content Disclaimer</h2>
+            <p>We strive for accuracy but cannot guarantee completeness. Game updates may render sections outdated. Always cross-check with the official itch.io page for the latest builds.</p>
 
-        <h2>Changes to These Terms</h2>
-        <p>We may update these terms to reflect site improvements or policy changes. Continued use of the Site indicates acceptance of revised terms.</p>
+            <h2>Links to Other Websites</h2>
+            <p>The Site contains links to third-party websites. We do not control or endorse their content and are not responsible for any damages arising from their use.</p>
 
-        <p>Last updated: October 30, 2025</p>
+            <h2>Changes to These Terms</h2>
+            <p>We may update these terms to reflect site improvements or policy changes. Continued use of the Site indicates acceptance of revised terms.</p>
+
+            <p style="margin-top: 30px; font-size: 0.9rem;">Last updated: October 30, 2025</p>
+            
+            <a href="index.html" class="back-link">← Back to Home</a>
+        </div>
     </div>
+
+    <footer>
+        <div style="margin-bottom: 10px; letter-spacing: 1px; font-family: var(--main-font); color: var(--light-blood);">
+            FearMeGame Fan Hub
+        </div>
+        <div style="margin-bottom: 10px;">
+            <a href="about.html">About</a> •
+            <a href="contact.html">Contact</a> •
+            <a href="privacy.html">Privacy</a> •
+            <a href="terms.html">Terms</a>
+        </div>
+        <small>© 2025 FearMeGame. Fan-made resource honoring Neesa's original work.</small>
+    </footer>
 </body>
 </html>

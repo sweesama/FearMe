@@ -24,14 +24,17 @@ The page is a single static HTML document (`index.html`) with inline styles and 
 4. `#news` – Timeline of official devlog updates, community discoveries, localization milestones, and platform releases.
 5. `#faq` – Answers covering platforms, content warnings, pricing, playtime, offline availability, feedback channels, and roadmap expectations.
 
-## Recent Updates (2025-10-30)
+## Recent Updates (2025-11-06)
+- **Keyword Optimization**: Added 3 new FAQ questions focused on "FearMeGame" brand (What is / Is it safe / How differs). Total brand keyword appearances: 23 instances across page.
+- **News Section Branding**: Updated 4 news titles to include "FearMeGame" (APK Release / Community Theorycrafting / Accessibility Update / News & Updates header).
+- **Technical Support Section**: Added FearMeGame-branded troubleshooting guidance with 5 keyword mentions.
+- **Site Infrastructure**: Published `about.html`, `contact.html`, `privacy.html`, `terms.html` with complete navigation, GA tracking, and unified horror theme styling.
+- **404 Page Enhancement**: Added favicon and Creepster font references to maintain brand consistency.
 - Added detailed **News** timeline covering 2025 release milestones, localization beta, community theories, and APK availability.
-- Introduced a dedicated **FAQ** tab with seven high-signal questions for search intent coverage.
-- Added **FearMeGame Technical Support** guidance to the Game tab and reinforced brand keywords in the hero copy.
-- Published `about.html`, `contact.html`, `privacy.html`, and `terms.html`, then linked them via the global footer for trust signals.
+- Introduced a dedicated **FAQ** tab with ten high-signal questions for search intent coverage.
 - Refreshed **meta tags** (title/description, Open Graph, Twitter Card) for improved SERP snippets and social sharing.
 - Expanded **structured data** (VideoGame schema) with platform, author, publisher, and keyword fields.
-- Updated `sitemap.xml`, `llms.txt`, and ensured `robots.txt` references the latest sitemap.
+- Updated `sitemap.xml` to include all legal/support pages, and ensured `robots.txt` references the latest sitemap.
 - Linked the new `favicon.png` and verified consistent English copy across all public text.
 
 ## Quick Start
